@@ -41,11 +41,11 @@ module.exports = {
         ],
     },
     plugins: [
-        /* new HtmlWebpackPlugin([{
-                                inject: true,
-                                template: "./public/index.html",
-                                filename: "./index.html",
-                            }, ]), */
+        new HtmlWebpackPlugin([{
+            inject: true,
+            template: "./public/index.html",
+            filename: "./index.html",
+        }, ]),
         new MiniCssExtractPlugin({
             filename: "[name].css",
         }),

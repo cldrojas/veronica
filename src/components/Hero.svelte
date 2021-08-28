@@ -19,7 +19,7 @@
 	}
 
 	.hero-image {
-		background-image: url("./img/bg-hero.jpeg");
+		background-image: url("./img/bg-hero.jpg");
 		background-size: cover;
 		height: 100%;
 	}

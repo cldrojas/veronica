@@ -20,7 +20,6 @@
 
 <style>
 	.Footer {
-		height: 120px;
 		background-color: #2b2b2b;
 		color: var(--white);
 	}

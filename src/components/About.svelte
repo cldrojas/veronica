@@ -45,7 +45,6 @@
 
 		.about-content {
 			background-color: #008080c4;
-			height: 100%;
 		}
 
 		.about-content p {

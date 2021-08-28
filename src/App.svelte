@@ -19,7 +19,6 @@
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
 	.App {
-		height: 100%;
 		overflow: hidden;
 		color: white;
 	}

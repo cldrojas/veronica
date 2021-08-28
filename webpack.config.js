@@ -1,17 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const DotenvWebpackPlugin = require("dotenv-webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+    mode: "development",
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "main.js",
-    },
-    resolve: {
-        extensions: [".js"],
     },
     module: {
         rules: [{
@@ -41,23 +38,24 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin([{
-            inject: true,
+        new HtmlWebpackPlugin({
             template: "./public/index.html",
-            filename: "./index.html",
-        }, ]),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
         }),
         //new DotenvWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [{
-                from: path.resolve("./public/index.html"),
-                to: "./",
-            }, {
-                from: path.resolve("./public/favicon.png"),
-                to: "./",
+                from: path.resolve("./public/img"),
+                to: "img",
             }, ],
         }),
+        new MiniCssExtractPlugin(),
     ],
+    resolve: {
+        extensions: [".mjs", ".js", ".svelte"],
+    },
+    devServer: {
+        historyApiFallback: true,
+        contentBase: path.resolve(__dirname, "dist"),
+        hot: true,
+    },
 };

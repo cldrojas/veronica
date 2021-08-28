@@ -32,7 +32,6 @@
 		font-size: 30px;
 		text-align: center;
 		display: block;
-		justify-content: left;
 		width: 90%;
 		height: 35%;
 		background-color: #401770c9;

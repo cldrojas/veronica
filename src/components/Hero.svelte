@@ -46,7 +46,7 @@
 
 		.hero-image {
 			margin-left: 10%;
-			background-image: url("./img/bg-hero.jpeg");
+			background-image: url("./img/bg-hero.jpg");
 			background-size: contain;
 			background-repeat: no-repeat;
 		}

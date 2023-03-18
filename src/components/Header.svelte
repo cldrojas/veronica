@@ -2,13 +2,8 @@
   import Logo from "./Logo.svelte";
 </script>
 
-<<<<<<< HEAD
-<div id="Header" class="sm:sticky flex flex-grow min-h-4 bg-pink-500 sm:bg-yellow-700">
-  <div class="align-center justify-around flex">
-=======
-<div id="Header" class="Header sticky">
+<div id="Header" class="block lg:sticky">
   <div class="header-content">
->>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d
     <nav>
       <ul>
         <Logo />
@@ -19,58 +14,3 @@
     </nav>
   </div>
 </div>
-
-<<<<<<< HEAD
-<!-- <style>
-=======
-<style>
->>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d
-  .Header {
-    display: none;
-  }
-  @media only screen and (min-width: 860px) {
-    .Header {
-      position: sticky;
-      z-index: 2;
-      height: 60px;
-      background-color: var(--morado-darker);
-      /* margin-bottom: -30px; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    .header-content {
-      width: 100%;
-    }
-
-    ul {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      margin: 0;
-    }
-    li {
-      line-height: 60px;
-      list-style: none;
-    }
-    a {
-      color: var(--white);
-    }
-    .active {
-      background-color: var(--morado);
-      padding: 18px;
-      border-radius: 0;
-    }
-
-    .sticky {
-      top: 0;
-      width: 100%;
-    }
-  }
-<<<<<<< HEAD
-</style> -->
-=======
-</style>
->>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d

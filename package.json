@@ -2,6 +2,7 @@
   "name": "verito",
   "type": "module",
   "version": "0.1.1",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

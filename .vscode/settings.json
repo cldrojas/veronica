@@ -1,11 +1,14 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "eslint.rules.customizations": [{ "semi": "none" }],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
   "[svelte]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "prettier.bracketSpacing": true
 }

@@ -9,6 +9,6 @@
 
   a {
     text-decoration: none;
-    color: var(--morado);
+    color: #dd35a5;
   }
 </style>

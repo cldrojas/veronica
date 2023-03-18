@@ -2,8 +2,13 @@
   import Logo from "./Logo.svelte";
 </script>
 
+<<<<<<< HEAD
 <div id="Header" class="sm:sticky flex flex-grow min-h-4 bg-pink-500 sm:bg-yellow-700">
   <div class="align-center justify-around flex">
+=======
+<div id="Header" class="Header sticky">
+  <div class="header-content">
+>>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d
     <nav>
       <ul>
         <Logo />
@@ -15,7 +20,11 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <!-- <style>
+=======
+<style>
+>>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d
   .Header {
     display: none;
   }
@@ -60,4 +69,8 @@
       width: 100%;
     }
   }
+<<<<<<< HEAD
 </style> -->
+=======
+</style>
+>>>>>>> b4c1fe1277d5c2b396f4f7bacab3791202b5513d

@@ -4,10 +4,10 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push: ## TODO: only deploy after al PR tests pass
-    branches: [ master ]
+    branches: [master]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
-  
+
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -22,11 +22,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Install, build, and upload your site output
         uses: withastro/action@v0
-          with:
-            - node-version: 18
-            - package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-            # path: . # The root location of your Astro project inside the repository. (optional)
-            # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
+        with:
+          node-version: 18
+          package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
 
   deploy:
     needs: build

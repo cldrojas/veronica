@@ -10,5 +10,8 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "prettier.bracketSpacing": true
+  "prettier.bracketSpacing": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///home/cldrojas/Projects/veronica/.github/workflows/deploy.yml"
+  }
 }

@@ -1,40 +1,53 @@
-name: Deploy to GitHub Pages
+name: Deploy CI pipeline
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
-  push: ## TODO: only deploy after al PR tests pass
+  push:
     branches: [master]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
-  workflow_dispatch:
-
-# Allow this job to clone the repo and create a page deployment
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
-  build:
+  avoid_redundancy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v3
-      - name: Install, build, and upload your site output
-        uses: withastro/action@v0
+      - name: Cancel redundant builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
-          package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-          # path: . # The root location of your Astro project inside the repository. (optional)
-          # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
+          cache: 'yarn'
+      - name: Install depenencies
+        run: yarn install
+      - name: Lint code
+        run: yarn lint
 
   deploy:
-    needs: build
+    needs: lint
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install depenencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Deploy 🚀
+        if: ${{ github.event_name == 'push' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist

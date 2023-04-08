@@ -24,13 +24,11 @@ jobs:
         uses: withastro/action@v0
         with:
           node-version: 18
-          package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-          # path: . # The root location of your Astro project inside the repository. (optional)
-          # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
+          package-manager: yarn
 
   lint:
     needs: build
-    name: Check for code issues with ESLint
+    name: Check ESLint rules
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -48,5 +46,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        if: ${{ github.event_name == 'push' }}
         id: deployment
         uses: actions/deploy-pages@v1

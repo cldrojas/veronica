@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "lint:eslint": "standard",
-    "lint:fix": "standard --fix",
+    "lint": "standard --fix",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky install"

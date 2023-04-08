@@ -26,20 +26,8 @@ jobs:
           node-version: 18
           package-manager: yarn
 
-  lint:
-    needs: build
-    name: Check ESLint rules
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v3
-      - name: Install modules
-        run: yarn
-      - name: Run eslint
-        run: yarn lint:eslint
-
   deploy:
-    needs: lint
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages

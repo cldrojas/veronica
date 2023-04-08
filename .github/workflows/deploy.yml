@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
-  push: ## TODO: only deploy after al PR tests pass
+  push:
+    branches: [master]
+  pull_request:
     branches: [master]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
@@ -28,8 +28,20 @@ jobs:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # resolve-dep-from-path: false # If the dependency file should be resolved from the root location of your Astro project. Defaults to `true`. (optional)
 
-  deploy:
+  lint:
     needs: build
+    name: Check for code issues with ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install modules
+        run: yarn
+      - name: Run eslint
+        run: yarn lint:eslint
+
+  deploy:
+    needs: lint
     runs-on: ubuntu-latest
     environment:
       name: github-pages

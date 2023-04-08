@@ -25,6 +25,7 @@
       "sm:flex": true,
       "sm:p-0": true,
     });
+    console.log("Hello world")
   });
 </script>
 
@@ -34,7 +35,7 @@
       <div class="flex items-center justify-between h-16">
         <div class="w-full justify-between flex items-center">
           <Logo />
-          <div class="hidden md:block">
+          <div class="hidden md:block ">
             <div class="flex items-baseline ml-10 space-x-4">
               <a
                 class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"

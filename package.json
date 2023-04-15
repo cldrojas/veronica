@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "lint": "standard --fix",
-    "preview": "astro preview",
+    "preview": "rm -rf /dist && yarn build && astro preview",
     "astro": "astro",
     "prepare": "husky install"
   },

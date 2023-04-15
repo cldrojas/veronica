@@ -67,7 +67,7 @@
         <div class="block">
           <div class="flex items-center ml-4 md:ml-6" />
         </div>
-        <div class="flex -mr-2 md:hidden" on:click={open.toggle}>
+        <div class="flex -mr-2 md:hidden" on:click={open.toggle} on:keypress={open.toggle}>
           <button
             class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
           >

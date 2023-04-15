@@ -17,6 +17,12 @@ permissions:
   id-token: write
 
 jobs:
+  avoid_redundancy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel stale builds
+        uses: styfle/cancel-workflow-action@0.9.1
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +36,7 @@ jobs:
           # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
   deploy:
+    if: ${{ github.event_name == 'push' }}
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -37,6 +44,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        if: ${{ github.event_name == 'push' }}
         id: deployment
         uses: actions/deploy-pages@v1

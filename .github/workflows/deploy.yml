@@ -17,6 +17,12 @@ permissions:
   id-token: write
 
 jobs:
+  avoid_redundancy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel stale builds
+        uses: styfle/cancel-workflow-action@0.9.1
+
   build:
     runs-on: ubuntu-latest
     steps:

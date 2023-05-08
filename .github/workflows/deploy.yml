@@ -5,7 +5,7 @@ on:
   # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [master]
-  pull_request:
+  merge_group:
     branches: [master]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
@@ -36,7 +36,6 @@ jobs:
           # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
   deploy:
-    if: ${{ github.event_name == 'push' }}
     needs: build
     runs-on: ubuntu-latest
     environment:

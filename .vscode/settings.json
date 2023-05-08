@@ -5,7 +5,7 @@
     "source.fixAll": true
   },
   "[svelte]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "prettier.semi": false,
   "prettier.singleQuote": true,

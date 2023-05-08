@@ -1,72 +1,43 @@
 <script>
-  import Logo from "./Logo.svelte";
-
-  import { onMount } from "svelte";
-  import { writable } from "svelte/store";
-  import { classList } from "../utils";
-
-  const toggle = (initialValue) => {
-    const { subscribe, set, update } = writable(initialValue);
-    return {
-      subscribe,
-      toggle: () => update((value) => !value),
-      set,
-    };
-  };
-
-  const open = toggle(false);
-  let menuClasses = "";
-
-  onMount(() => {
-    menuClasses = classList({
-      hidden: !open,
-      block: open,
-      "px-2 pt-2 pb-4": true,
-      "sm:flex": true,
-      "sm:p-0": true,
-    });
-    console.log("Hello world")
-  });
+  import Logo from './Logo.svelte'
 </script>
 
-<div>
-  <nav class="bg-gray-800  shadow ">
+<header class="sticky top-0 z-10">
+  <nav class=" bg-gray-800 shadow">
     <div class="px-8 mx-auto max-w-7xl">
       <div class="flex items-center justify-between h-16">
         <div class="w-full justify-between flex items-center">
           <Logo />
-          <div class="hidden md:block ">
+          <div class="hidden md:inline-block">
             <div class="flex items-baseline ml-10 space-x-4">
               <a
-                class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="/#Home"
+                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                href="#home"
               >
                 Inicio
               </a>
               <a
-                class="text-gray-300 dark:text-white  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="/#Services"
+                class="text-gray-300 dark:text-white hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                href="#services"
               >
                 Servicios
               </a>
               <a
-                class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="/#About"
+                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                href="#about"
               >
                 Sobre mi
               </a>
               <a
-                class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="/#Contact"
+                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                href="#contact"
               >
                 Contacto
               </a>
             </div>
           </div>
         </div>
-        <div class="block">
-          <div class="flex items-center ml-4 md:ml-6" />
-        </div>
+
         <div class="flex -mr-2 md:hidden" on:click={open.toggle} on:keypress={open.toggle}>
           <button
             class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
@@ -91,29 +62,29 @@
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a
           class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="/#Home"
+          href="#Home"
         >
           Inicio
         </a>
         <a
           class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="/#Services"
+          href="#Services"
         >
           Servicios
         </a>
         <a
           class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="/#About"
+          href="#About"
         >
           Sobre mi
         </a>
         <a
           class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="/#Contact"
+          href="#Contact"
         >
           Contacto
         </a>
       </div>
     </div>
   </nav>
-</div>
+</header>

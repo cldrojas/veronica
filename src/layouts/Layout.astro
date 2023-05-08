@@ -1,35 +1,59 @@
 ---
 export interface Props {
-	title: string;
+  title: string
 }
-
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content="Verónica Crespo Pérez" />
+    <meta name="description" content="Enfermera y Fisioterapeuta de la cuidad de mexico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://veronicacrespo.com" />
+    <meta property="og:title" content="Verónica Crespo Pérez" />
+    <meta property="og:description" content="Enfermera y Fisioterapeuta de la cuidad de mexico" />
+    <meta property="og:image" content="https://cldrojas.github.io/veronica/img/meta-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://veronicacrespo.com" />
+    <meta property="twitter:title" content="Verónica Crespo Pérez" />
+    <meta
+      property="twitter:description"
+      content="Enfermera y Fisioterapeuta de la cuidad de mexico"
+    />
+    <meta
+      property="twitter:image"
+      content="https://cldrojas.github.io/veronica/img/meta-image.jpg"
+    />
+    <link rel="icon" type="image/png" href="./img/FavIcon.png" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f6f6f6;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
 </style>

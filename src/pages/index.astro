@@ -1,23 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import NavBar from '../components/NavBar.svelte'
-import Hero from '../components/Hero.svelte'
-import Services from '../components/Services.svelte'
-import About from '../components/About.svelte'
-import Footer from '../components/Footer.svelte'
+import About from './about.astro'
+import Services from './services.astro'
+import Contact from './contact.astro'
 ---
 
-<Layout title="Enfermera Verónica Crespo">
-  <main>
-    <header>
-      <NavBar />
-    </header>
-
-    <section>      
-      <Hero />
-      <Services />
-      <About />
-      <Footer />
-    </section>
+<Layout title="Verónica Crasdespo">
+  <main id="home">
+    <NavBar />
+    <About />
+    <Services />
+    <Contact />
   </main>
 </Layout>

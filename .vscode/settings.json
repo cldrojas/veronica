@@ -13,5 +13,6 @@
   "prettier.bracketSpacing": true,
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "file:///home/cldrojas/Projects/veronica/.github/workflows/deploy.yml"
-  }
+  },
+  "typescript.inlayHints.parameterNames.enabled": "all"
 }

@@ -35,7 +35,7 @@ const { title } = Astro.props
       property="twitter:image"
       content="https://cldrojas.github.io/veronica/img/meta-image.jpg"
     />
-    <link rel="icon" type="image/png" href="./img/FavIcon.png" />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
   </head>
 
   <body>
@@ -45,6 +45,7 @@ const { title } = Astro.props
 
 <style is:global>
   :root {
+    box-sizing: border-box;
     --accent: 124, 58, 237;
     --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
   }

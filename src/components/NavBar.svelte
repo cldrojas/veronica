@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
   import Logo from './Logo.svelte'
+
+  $: open = false
+  const handleToggle = () => (open = !open)
 </script>
 
-<header class="sticky top-0 z-10">
-  <nav class=" bg-gray-800 shadow">
+<header class="sticky top-0 z-50">
+  <nav class="bg-gray-800 shadow">
     <div class="px-8 mx-auto max-w-7xl">
       <div class="flex items-center justify-between h-16">
         <div class="w-full justify-between flex items-center">
@@ -38,9 +41,11 @@
           </div>
         </div>
 
-        <div class="flex -mr-2 md:hidden" on:click={open.toggle} on:keypress={open.toggle}>
+        <div class="flex -mr-2 md:hidden">
           <button
             class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+            on:click={handleToggle}
+            on:keyup={handleToggle}
           >
             <svg
               width="20"
@@ -58,33 +63,41 @@
         </div>
       </div>
     </div>
-    <div class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a
-          class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="#Home"
-        >
-          Inicio
-        </a>
-        <a
-          class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="#Services"
-        >
-          Servicios
-        </a>
-        <a
-          class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="#About"
-        >
-          Sobre mi
-        </a>
-        <a
-          class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          href="#Contact"
-        >
-          Contacto
-        </a>
-      </div>
-    </div>
+    <nav class="md:shrink-0 md:hidden transition-all duration-500" class:h-10={!open}>
+      <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <li>
+          <a
+            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            href="#home"
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium"
+            href="#services"
+          >
+            Servicios
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            href="#about"
+          >
+            Sobre mi
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            href="#contact"
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </nav>
   </nav>
 </header>

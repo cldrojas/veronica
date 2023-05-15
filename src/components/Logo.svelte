@@ -1,4 +1,4 @@
-<div class="logo"><a href="/">Verónica</a></div>
+<div class="logo"><a href="#home">Verónica</a></div>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');

@@ -5,99 +5,38 @@
   const handleToggle = () => (open = !open)
 </script>
 
-<header class="sticky top-0 z-50">
-  <nav class="bg-gray-800 shadow">
-    <div class="px-8 mx-auto max-w-7xl">
-      <div class="flex items-center justify-between h-16">
-        <div class="w-full justify-between flex items-center">
-          <Logo />
-          <div class="hidden md:inline-block">
-            <div class="flex items-baseline ml-10 space-x-4">
-              <a
-                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="#home"
-              >
-                Inicio
-              </a>
-              <a
-                class="text-gray-300 dark:text-white hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="#services"
-              >
-                Servicios
-              </a>
-              <a
-                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="#about"
-              >
-                Sobre mi
-              </a>
-              <a
-                class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                href="#contact"
-              >
-                Contacto
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex -mr-2 md:hidden">
-          <button
-            class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
-            on:click={handleToggle}
-            on:keyup={handleToggle}
-          >
-            <svg
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="w-8 h-8"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+<header class="bg-gray-800 sticky top-0 shadow px-6 flex justify-around max-h-16">
+  <Logo />
+  <nav class="flex justify-around">
+    <ul
+      class="md:flex md:translate-y-0 md:opacity-100 -translate-y-full items-start opacity-0 animation-all ease-in-out 700ms"
+      class:translate-y-full={open}
+      class:opacity-100={open}
+    >
+      <li class="p-4 flex text-[#fafafa]"><a href="#inicio">Inicio </a></li>
+      <li class="p-4 flex text-[#fafafa]"><a href="#servicios">Servicios </a></li>
+      <li class="p-4 flex text-[#fafafa]"><a href="#sobre">Sobre </a> mi</li>
+      <li class="p-4 flex text-[#fafafa]"><a href="#contacto">Contacto </a></li>
+    </ul>
+    <div class="grid md:hidden place-self-start self-auto">
+      <button
+        class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none"
+        on:click={handleToggle}
+        on:keyup={handleToggle}
+      >
+        <svg
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="w-8 h-8"
+          viewBox="0 0 1792 1792"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"
+          />
+        </svg>
+      </button>
     </div>
-    <nav class="md:shrink-0 md:hidden transition-all duration-500" class:h-10={!open}>
-      <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <li>
-          <a
-            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            href="#home"
-          >
-            Inicio
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium"
-            href="#services"
-          >
-            Servicios
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            href="#about"
-          >
-            Sobre mi
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            href="#contact"
-          >
-            Contacto
-          </a>
-        </li>
-      </ul>
-    </nav>
   </nav>
 </header>

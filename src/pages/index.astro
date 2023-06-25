@@ -5,14 +5,16 @@ import Hero from './hero.astro'
 import Services from './services.astro'
 import About from './about.astro'
 import Contact from './contact.astro'
+import Footer from './footer.astro'
 ---
 
 <Layout title="Verónica Crespo">
   <main id="home">
-    <NavBar client:load />
+    <NavBar client:media="(max-width: 768px)" />
     <Hero />
     <Services client:view />
     <About />
     <Contact />
+    <Footer />
   </main>
 </Layout>

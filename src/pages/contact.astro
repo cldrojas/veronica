@@ -1,31 +1,47 @@
-<section id="contact">
-  <article>
-    <h3>Contact form</h3>
-  </article>
-  <footer class="bg-gray-800 shadow p-6 mt-10">
-    <div class="flex items-center justify-between flex-wrap">
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-          <a
-            href="#services"
-            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4"
-          >
-            Servicios
-          </a>
-          <a
-            href="#about"
-            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 mr-4"
-          >
-            Sobre mí
-          </a>
-          <a
-            href="#contact"
-            class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400"
-          >
-            Contacto
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</section>
+<astro>
+  <section class="p-8 bg-blue-100">
+    <h2 class="text-2xl font-bold text-blue-800">Contacto</h2>
+    <p class="text-blue-600">
+      Para agendar una reunión de duración definida, por favor selecciona una fecha y hora
+      disponibles:
+    </p>
+
+    <form class="mt-4">
+      <label class="block mb-2 text-blue-800" for="fecha">Fecha:</label>
+      <input
+        class="block w-full px-4 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        type="date"
+        id="fecha"
+        name="fecha"
+        required
+      />
+
+      <label class="block mt-4 mb-2 text-blue-800" for="hora">Hora:</label>
+      <input
+        class="block w-full px-4 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        type="time"
+        id="hora"
+        name="hora"
+        required
+      />
+
+      <label class="block mt-4 mb-2 text-blue-800" for="duracion">Duración:</label>
+      <select
+        class="block w-full px-4 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        id="duracion"
+        name="duracion"
+        required
+      >
+        <option value="30">30 minutos</option>
+        <option value="60">60 minutos</option>
+        <option value="90">90 minutos</option>
+        <option value="120">120 minutos</option>
+      </select>
+
+      <button
+        class="mt-4 px-6 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+        type="submit">Agendar</button
+      >
+    </form>
+  </section>
+</astro>

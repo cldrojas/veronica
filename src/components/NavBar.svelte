@@ -1,22 +1,29 @@
 <script lang="ts">
   import Logo from './Logo.svelte'
-
-  $: open = false
+  $: open = true // NOTE: Remember to put it to false before commit
   const handleToggle = () => (open = !open)
 </script>
 
 <header class="bg-gray-800 sticky top-0 shadow px-6 flex justify-around max-h-16">
   <Logo />
-  <nav class="flex justify-around">
+  <nav class={`flex justify-around`}>
     <ul
-      class="md:flex md:translate-y-0 md:opacity-100 -translate-y-full items-start opacity-0 animation-all ease-in-out 700ms"
-      class:translate-y-full={open}
-      class:opacity-100={open}
+      class={`md:flex md:translate-y-0 md:opacity-100 items-start opacity-0 transition-opacity ease-in-out 800ms ${
+        open ? 'translate-y-full opacity-100' : '-translate-y-full'
+      }`}
     >
-      <li class="p-4 flex text-[#fafafa]"><a href="#inicio">Inicio </a></li>
-      <li class="p-4 flex text-[#fafafa]"><a href="#servicios">Servicios </a></li>
-      <li class="p-4 flex text-[#fafafa]"><a href="#sobre">Sobre </a> mi</li>
-      <li class="p-4 flex text-[#fafafa]"><a href="#contacto">Contacto </a></li>
+      <li class="bg-gray-800 p-4">
+        <a class={`${open ? 'text-[#fafafa]' : 'disabled'}`} href="#home">Inicio</a>
+      </li>
+      <li class="bg-gray-800 p-4">
+        <a class={`${open ? 'text-[#fafafa]' : 'disabled'}`} href="#services">Servicios</a>
+      </li>
+      <li class="bg-gray-800 p-4">
+        <a class={`sm:${open ? 'text-[#fafafa]' : 'disabled'}`} href="#about">Sobre mi</a>
+      </li>
+      <li class="bg-gray-800 p-4">
+        <a class="text-[#fafafa]" href="#contact">{open ? 'Contacto' : ''}</a>
+      </li>
     </ul>
     <div class="grid md:hidden place-self-start self-auto">
       <button

@@ -1,14 +1,32 @@
-<div class="container mx-auto mt-10" id="services">
+---
+import Services from '../components/Services.svelte'
+import ServicesPage from '../components/ServicesPage.svelte'
+import Service from '../components/Service.astro'
+
+// TO BE DONE TODAY:
+//
+// - set a static page for showing services grouped by category ✅
+// - create a modal component that focus the user's attention in the selected service
+// - create a island modalContent for showing service data such as: name, description, periodicity, price, conditions
+---
+
+<main class="container mx-auto mt-10" id="services">
   <h2 class="text-3xl font-bold text-center mb-10">Servicios</h2>
-  <div class="flex flex-wrap justify-stretch sm:justify-center">
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Inyectables</h3>
-        <p class="text-gray-700 text-base">
-          Colocación de suero, medicamentos intramusculares, subcutáneos e intradérmicos
-        </p>
-      </div>
-    </div>
+  <div
+    class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-0 justify-center align-middle sm:justify-center max-w-[1024px]"
+  >
+    <Service title={'Inyecta'} />
+    <!-- <Services client:load /> -->
+    <!-- <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md hover:shadow-xl">
+      <a href={sendMessage(`Hola, soy ${user.name}, me gustartía consultar sobre ${service.name}`)}>
+        <div class="px-6 py-4">
+          <h3 class="text-xl font-bold mb-2">Inyectables</h3>
+          <p class="text-gray-700 text-base">
+            Colocación de suero, medicamentos intramusculares, subcutáneos e intradérmicos
+          </p>
+        </div>
+      </a>
+    </div> -->
 
     <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
       <div class="px-6 py-4">
@@ -43,4 +61,4 @@
       </div>
     </div>
   </div>
-</div>
+</main>

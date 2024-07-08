@@ -1,0 +1,36 @@
+---
+import Logo from './Logo.svelte'
+
+const menuItems = [
+  { name: 'Inicio', href: '#home' },
+  { name: 'Servicios', href: '#services' },
+  { name: 'Sobre mi', href: '#about' },
+  { name: 'Contacto', href: '#contact' }
+]
+---
+
+<header class="sticky top-0 z-50">
+  <nav class="bg-gray-800 shadow">
+    <div class="px-8 mx-auto max-w-7xl">
+      <div class="flex items-center justify-between h-16">
+        <div class="w-full justify-between flex items-center">
+          <Logo />
+          <div class="hidden md:inline-block">
+            <div class="flex items-baseline ml-10 space-x-4">
+              {
+                menuItems.map(({ name, href }) => (
+                  <a
+                    class="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    href={href}
+                  >
+                    {name}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

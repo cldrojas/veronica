@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import NavBar from '../components/NavBar.svelte'
 import Hero from './hero.astro'
 import Services from './services.astro'
 import About from './about.astro'
 import Contact from './contact.astro'
+import Navbar from '../components/Navbar.astro'
 ---
 
 <Layout title="Verónica Crespo">
   <main id="home">
-    <NavBar client:load />
+    <Navbar client:load />
     <Hero />
     <Services client:view />
     <About />

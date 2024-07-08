@@ -1,46 +1,68 @@
-<div class="container mx-auto mt-10" id="services">
-  <h2 class="text-3xl font-bold text-center mb-10">Servicios</h2>
-  <div class="flex flex-wrap justify-stretch sm:justify-center">
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Inyectables</h3>
-        <p class="text-gray-700 text-base">
-          Colocación de suero, medicamentos intramusculares, subcutáneos e intradérmicos
-        </p>
-      </div>
-    </div>
+---
+import medicineLogo from '../images/medicine.svg'
+import signsLogo from '../images/signs.svg'
+import measurementsLogo from '../images/measurements.svg'
+import reportLogo from '../images/report.svg'
+import wheelChairLogo from '../images/wheelChair.svg'
+import massageLogo from '../images/massage.svg'
+import cureLogo from '../images/cure.svg'
 
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Toma de Signos Vitales</h3>
-        <p class="text-gray-700 text-base">
-          Temperatura corporal, Frecuencia cardiaca, Presión arterial, Frecuencia respiratoria
-        </p>
-      </div>
-    </div>
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Mediciones</h3>
-        <p class="text-gray-700 text-base">Glucosa, Indice de Masa Corporal y Oxigenación</p>
-      </div>
-    </div>
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Cuidados</h3>
-        <p class="text-gray-700 text-base">Cuidados geriátricos en rondas de 8 y 12 horas</p>
-      </div>
-    </div>
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Terapia</h3>
-        <p class="text-gray-700 text-base">Terapia de rehabilitación física y de electrodos</p>
-      </div>
-    </div>
-    <div class="max-w-sm mx-4 mb-8 bg-white rounded-lg shadow-md">
-      <div class="px-6 py-4">
-        <h3 class="text-xl font-bold mb-2">Masajes</h3>
-        <p class="text-gray-700 text-base">Masajes descontrasturantes, relajantes y deportivos</p>
-      </div>
-    </div>
+const servicios = [
+  {
+    logo: medicineLogo,
+    title: 'Administración de Medicamentos',
+    description:
+      'Colocación de suero, medicamentos intramusculares, subcutáneos e intradérmicos'
+  },
+  {
+    logo: signsLogo,
+    title: 'Toma de Signos Vitales',
+    description:
+      'Temperatura corporal, Frecuencia cardiaca, Presión arterial, Frecuencia respiratoria'
+  },
+  {
+    logo: measurementsLogo,
+    title: 'Mediciones',
+    description: 'Glucosa, Indice de Masa Corporal y Oxigenación'
+  },
+  {
+    logo: reportLogo,
+    title: 'Cuidados',
+    description: 'Cuidados geriátricos en rondas de 8 y 12 horas'
+  },
+  {
+    logo: wheelChairLogo,
+    title: 'Fisioterapia',
+    description: 'Terapia de rehabilitación física y de electrodos'
+  },
+  {
+    logo: massageLogo,
+    title: 'Masajes',
+    description: 'Masajes descontracturantes, faciales y motrices'
+  },
+  {
+    logo: cureLogo,
+    title: 'Curaciones y sutúras',
+    description: 'Curaciones de heridas, suturas y retiro de puntos'
+  }
+]
+---
+
+<div class="p-12 pt-24" id="services">
+  <h2 class="text-3xl font-bold text-center">Servicios</h2>
+  <div
+    class="mt-16 grid grid-cols-1 md:grid-cols-2 md:auto-fit-100 lg:grid-cols-3 gap-6"
+  >
+    {
+      servicios.map(({ title, description, logo }) => (
+        <div class="bg-white py-8 shadow-md p-4 [&:nth-child(3n-1)]:bg-[#0f766e] [&:nth-child(3n-1)]:text-[#fafafa] md:[&:nth-child(3n)]:col-span-2">
+          <div class="h-16 w-16 mb-2">
+            <img src={logo} alt={title} height="50px" />
+          </div>
+          <h3 class="text-2xl font-semibold">{title}</h3>
+          <p class="mt-2 font-light">{description}</p>
+        </div>
+      ))
+    }
   </div>
 </div>

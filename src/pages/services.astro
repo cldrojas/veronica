@@ -1,66 +1,64 @@
 ---
-import medicineLogo from '../images/medicine.svg'
-import signsLogo from '../images/signs.svg'
-import measurementsLogo from '../images/measurements.svg'
-import reportLogo from '../images/report.svg'
-import wheelChairLogo from '../images/wheelChair.svg'
-import massageLogo from '../images/massage.svg'
-import cureLogo from '../images/cure.svg'
+import medicineLogo from '../images/medicine.astro'
+import signsLogo from '../images/signs.astro'
+import measurementsLogo from '../images/measurements.astro'
+import reportLogo from '../images/report.astro'
+import wheelChairLogo from '../images/wheelChair.astro'
+import massageLogo from '../images/massage.astro'
+import cureLogo from '../images/cure.astro'
 
 const servicios = [
   {
+    title: 'Medicamentos',
     logo: medicineLogo,
-    title: 'Administración de Medicamentos',
     description:
       'Colocación de suero, medicamentos intramusculares, subcutáneos e intradérmicos'
   },
+  // {
+  //   title: 'Mediciones',
+  //   logo: measurementsLogo,
+  //   description: 'Glucosa, Indice de Masa Corporal y Oxigenación'
+  // },
   {
-    logo: signsLogo,
-    title: 'Toma de Signos Vitales',
-    description:
-      'Temperatura corporal, Frecuencia cardiaca, Presión arterial, Frecuencia respiratoria'
-  },
-  {
-    logo: measurementsLogo,
-    title: 'Mediciones',
-    description: 'Glucosa, Indice de Masa Corporal y Oxigenación'
-  },
-  {
-    logo: reportLogo,
     title: 'Cuidados',
+    logo: reportLogo,
     description: 'Cuidados geriátricos en rondas de 8 y 12 horas'
   },
   {
-    logo: wheelChairLogo,
+    title: 'Signos Vitales y Monitoreo',
+    logo: signsLogo,
+    description:
+      'Temperatura corporal, Frecuencia cardiaca, Presión arterial, Frecuencia respiratoria, Glucosa, Indice de Masa Corporal y Oxigenación'
+  },
+  {
     title: 'Fisioterapia',
+    logo: wheelChairLogo,
     description: 'Terapia de rehabilitación física y de electrodos'
   },
   {
-    logo: massageLogo,
     title: 'Masajes',
+    logo: massageLogo,
     description: 'Masajes descontracturantes, faciales y motrices'
   },
   {
-    logo: cureLogo,
     title: 'Curaciones y sutúras',
+    logo: cureLogo,
     description: 'Curaciones de heridas, suturas y retiro de puntos'
   }
 ]
 ---
 
-<div class="p-12 pt-24" id="services">
+<div class="p-6 pt-10 max-w-5xl mx-auto" id="services">
   <h2 class="text-3xl font-bold text-center">Servicios</h2>
   <div
-    class="mt-16 grid grid-cols-1 md:grid-cols-2 md:auto-fit-100 lg:grid-cols-3 gap-6"
+    class="mt-8 grid grid-cols-1 md:grid-cols-2 md:auto-fit-100 lg:grid-cols-3 lg:auto-fit-100 gap-6"
   >
     {
-      servicios.map(({ title, description, logo }) => (
-        <div class="bg-white py-8 shadow-md p-4 [&:nth-child(3n-1)]:bg-[#0f766e] [&:nth-child(3n-1)]:text-[#fafafa] md:[&:nth-child(3n)]:col-span-2">
-          <div class="h-16 w-16 mb-2">
-            <img src={logo} alt={title} height="50px" />
-          </div>
-          <h3 class="text-2xl font-semibold">{title}</h3>
-          <p class="mt-2 font-light">{description}</p>
+      servicios.map(({ title, description, logo: IconComponent }) => (
+        <div class="bg-white shadow-md max-h-56 py-6 px-4 [&:nth-child(3n-1)]:bg-[#0f766e] [&:nth-child(3n-1)]:text-[#fafafa] md:[&:nth-child(3n)]:col-span-2 lg:[&:nth-child(3n)]:col-span-1 lg:[&:nth-child(3n-1)]:-translate-y-6">
+          <IconComponent size="30" class="mb-2" />
+          <h3 class="text-xl font-semibold">{title}</h3>
+          <p class="text-md mt-2 font-light text-wrap">{description}</p>
         </div>
       ))
     }

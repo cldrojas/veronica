@@ -4,12 +4,12 @@ import Hero from './hero.astro'
 import Services from './services.astro'
 import About from './about.astro'
 import Contact from './contact.astro'
-import Navbar from '../components/Navbar.astro'
+import NavBar from '../components/Navbar.astro'
 ---
 
 <Layout title="Verónica Crespo">
   <main id="home">
-    <Navbar client:load />
+    <NavBar client:load />
     <Hero />
     <Services client:view />
     <About />

@@ -7,6 +7,8 @@ on:
     branches: [master]
   merge_group:
     branches: [master]
+  pull_request:
+    types: [opened, synchronize]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -35,9 +37,21 @@ jobs:
           node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
           # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
+  preview:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          branch: ${{ github.head_ref }}
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

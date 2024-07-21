@@ -1,17 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from './hero.astro'
-import Services from './services.astro'
-import About from './about.astro'
-import Contact from './contact.astro'
-import Navbar from '../components/Navbar.astro'
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/pages/hero.astro'
+import Services from '@/pages/services.astro'
+import About from '@/pages/about.astro'
+import Contact from '@/pages/contact.astro'
+import Navbar from '@/components/Navbar.astro'
 ---
 
 <Layout title="Verónica Crespo">
   <main id="home">
-    <Navbar client:load />
+    <Navbar />
     <Hero />
-    <Services client:view />
+    <Services />
     <About />
     <Contact />
   </main>
